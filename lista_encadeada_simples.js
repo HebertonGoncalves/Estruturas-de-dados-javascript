@@ -30,7 +30,8 @@ class listaencadeada{
         inserido.proximo = this.primeiro;
         this.primeiro = inserido;
     }
-    //Senão, 
+    //Senão, a variavel auxiliar alvo recebe os dados do primeiro item da lista e no laço for as variáveis vão
+    //mudando de posição até o fim da lista, numa especie de "empurrão"
     else{
         let alvo = this.primeiro;
         for(let i = 0; i < indice - 1; i++)
@@ -43,13 +44,18 @@ class listaencadeada{
 
 
  remove(indice){
+     //Diminui o tamanho da lista em um item
         this.tamanho--;
-
+        //Se o indice for 0, o item removido recebe o valor nulo e o ponteiro primeiro 
+        //recebe o endereço que era antes do item que estava na segunda posição
         if(indice === 0){
             let removido = this.primeiro;
             this.primeiro = removido.proximo;
             return removido;
-        }else{
+        }
+        //Senao a variavel auxiliar alvo recebe o endereço nulo e no laço for as variaveis vao trocando de posição
+        //numa especie de puxão
+        else{
             let alvo = this.primeiro;
             for(let i = 0; i < indice - 1; i++)
             alvo = alvo.proximo;
@@ -60,7 +66,7 @@ class listaencadeada{
         }
     }
 
-
+    //metodo ainda em fase de implementação, que tem como objetivo retornar a lista completa
     mostratudo(){
         for(let i = 0; i<this.tamanho; i++){
             return console.log(this.primeiro) 
@@ -70,12 +76,15 @@ class listaencadeada{
 }
 
 
-
+//Objeto jogos é uma instancia da classe listaencadeada
 let jogos = new listaencadeada();
 
+//objeto chama o metodo insere algumas vezes e passa como parametro um dado, nesse caso o nome de um jogo, e a posição onde esse dado
+//estara na lista encadeada
 jogos.insere('GTA V', 0);
 jogos.insere('CUPHEAD', 1);
 jogos.insere('FIFA', 2);
 jogos.insere('PES', 3);
 jogos.insere('NFS', 4);
+//objeto chama o metodo que gera no console do navegador a lista completa
 jogos.mostratudo();
