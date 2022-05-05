@@ -69,7 +69,7 @@ class listaencadeada{
     //metodo ainda em fase de implementação, que tem como objetivo retornar a lista completa
     mostratudo(){
         for(let i = 0; i<this.tamanho; i++){
-            return console.log(this.primeiro) 
+            return console.log(this.primeiro)
         }
     }
 
