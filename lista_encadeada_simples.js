@@ -19,7 +19,7 @@ class listaencadeada{
 
 
 //método insere um nó na lista passando como parametro o dado e a posição
- insere(valor, indice){
+ inserir(valor, indice){
     //aumenta o tamamnho da lista em um item
     this.tamanho++;
     //objeto criado a partir da clasee no
@@ -43,7 +43,7 @@ class listaencadeada{
 }
 
 
- remove(indice){
+ remover(indice){
      //Diminui o tamanho da lista em um item
         this.tamanho--;
         //Se o indice for 0, o item removido recebe o valor nulo e o ponteiro primeiro 
@@ -67,11 +67,22 @@ class listaencadeada{
     }
 
     //metodo ainda em fase de implementação, que tem como objetivo retornar a lista completa
-    mostratudo(){
+    mostrarTudo(){
         for(let i = 0; i<this.tamanho; i++){
             return console.log(this.primeiro)
         }
     }
+    //Metodo que retorna os dados de um item de acordo com a posição que é passada como parametro
+    pegarElemento(indice) {
+        if (indice >= 0 && indice <= this.tamanho) {
+        let no = this.primeiro;
+        for (let i = 0; i < indice && no != null; i++) {
+        no = no.proximo;
+            }
+            return no;
+                }
+            return undefined;
+        }        
 
 }
 
@@ -81,10 +92,14 @@ let jogos = new listaencadeada();
 
 //objeto chama o metodo insere algumas vezes e passa como parametro um dado, nesse caso o nome de um jogo, e a posição onde esse dado
 //estara na lista encadeada
-jogos.insere('GTA V', 0);
-jogos.insere('CUPHEAD', 1);
-jogos.insere('FIFA', 2);
-jogos.insere('PES', 3);
-jogos.insere('NFS', 4);
+jogos.inserir('GTA V', 0);
+jogos.inserir('CUPHEAD', 1);
+jogos.inserir('FIFA', 2);
+jogos.inserir('PES', 3);
+jogos.inserir('NFS', 4);
+
 //objeto chama o metodo que gera no console do navegador a lista completa
-jogos.mostratudo();
+jogos.mostrarTudo();
+
+//item é retornado do metodo pegarElemento e mostrado no console
+//console.log(jogos.pegarElemento(3));
