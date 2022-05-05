@@ -24,11 +24,14 @@ class listaencadeada{
     this.tamanho++;
     //objeto criado a partir da clasee no
     let inserido = new no(valor);
-    //se o indice definido pelo usuario for 0, 
+    //se o indice definido pelo usuario for 0, o no inserido receve nulo no seu atributo proximo, 
+    //que indica que não ha proximo elemento, em seguida o primeiro elemento se torna o elemento inserido.
     if (indice === 0){
         inserido.proximo = this.primeiro;
         this.primeiro = inserido;
-    }else{
+    }
+    //Senão, 
+    else{
         let alvo = this.primeiro;
         for(let i = 0; i < indice - 1; i++)
         alvo = alvo.proximo;
